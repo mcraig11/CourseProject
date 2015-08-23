@@ -5,8 +5,9 @@
 # label the data set with descriptive variable names
 # create a second, independent tiny data set with average of each variable for each activity and subject
 
-#strategy - determine
-
+library(plyr)
+library(dplyr)
+library(tidyr)
 #read in datasets
 
 test <- read.table("C:/Users/mcrai_000/Documents/R/CourseProject/UCI HAR Dataset/test/X_test.txt")
@@ -58,8 +59,7 @@ keep1 <- as.vector(keep$V1)
 test1 <- subset(test, select = keep1)
 train1 <- subset(train, select = keep1)
 
-#remove test and train for memory purposes
-rm(test, train)
+
 
 #now merge the two data sets. merging is done with the smaller data sets for memory allocation reasons
 all <- rbind(test1, train1)
